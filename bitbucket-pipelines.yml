@@ -1,0 +1,32 @@
+image: infomakerscandinaviaab/nodebuild:14-alpine-with-chromium
+
+options:
+  docker: true
+  max-time: 10
+
+pipelines:
+  tags:
+    "*.*.*":
+      - step:
+          name: Build and Publish
+          caches:
+            - docker
+          script:
+            - npm config set '//registry.npmjs.org/:_authToken' "${NPM_TOKEN}"
+            - npm ci
+            - npm run integration-test
+            - npm run build
+            - npm run types
+            - npm publish --access restricted
+
+  pull-requests:
+    "**":
+      - step:
+          name: Build and Test
+          caches:
+            - docker
+          script:
+            - npm ci
+            - npm run integration-test
+            - npm run build
+            - npm run types

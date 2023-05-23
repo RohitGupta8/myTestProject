@@ -1,0 +1,8 @@
+.sc-link {
+    color: #2079dc;
+}
+
+.sc-edit-link-tool > * {
+    display: inline-block;
+    margin-right: 5px;
+}

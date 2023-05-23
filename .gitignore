@@ -1,0 +1,7 @@
+types
+node_modules
+dist
+dist
+
+# IDE / Editor genereated files
+.idea

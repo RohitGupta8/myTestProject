@@ -1,0 +1,43 @@
+.npm
+.test
+.doc
+.docs
+.idea
+.vscode
+
+test
+coverage
+node_modules
+tmp
+
+/doc
+/collab
+/dom
+/model
+/ui
+/util
+
+/packages/**/*.js
+/**/*.test.js
+
+# Files in root
+.eslintignore
+.docgenrc.js
+.travis.yml
+.gitignore
+karma.conf.js
+jsconfig.json
+bitbucket-pipelines.yml
+.editorconfig
+.nvmrc
+index.js
+
+# Stuff needed for types generation
+tsconfig.types.json
+index.ts
+types
+
+# Rollup configs
+rollup.config.js
+rollup.test.config.js
+rollup.types.config.js

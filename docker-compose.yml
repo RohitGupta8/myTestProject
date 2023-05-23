@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+    substance-tests:
+        tty: true
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                NPM_TOKEN: ${NPM_TOKEN}
+                NODE_ENV: development
+        environment:
+            PORT: 3000
+            NODE_ENV: development
+        volumes:
+            - ./:/opt/app
+
+        entrypoint: npm run integration-test

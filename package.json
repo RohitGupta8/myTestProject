@@ -1,0 +1,50 @@
+{
+    "name": "@infomaker/substance",
+    "version": "1.6.2-rc.1",
+    "description": "Fork of a branch in a fork of substance",
+    "repository": {
+        "type": "git",
+        "url": "bitbucket.org:infomaker/substance.git"
+    },
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "build": "rollup --config rollup.config.js",
+        "dev": "rollup --config rollup.config.js -w",
+        "test": "docker-compose up --exit-code-from substance-tests",
+        "integration-test": "rollup --config rollup.test.config.js && karma start karma.conf.js",
+        "types": "tsc -d --project tsconfig.types.json && rollup --config rollup.types.config.js",
+        "release": "npm version --no-git-tag-version",
+        "release:major": "npm version major --no-git-tag-version",
+        "release:minor": "npm version minor --no-git-tag-version",
+        "release:hotfix": "npm version patch --no-git-tag-version",
+        "preversion": "npm run build && npm run test && npm run types",
+        "postversion": "git add package.json package-lock.json && git commit -m \"Bump version to v$npm_package_version\" && git tag -a $npm_package_version -m \"v$npm_package_version\""
+    },
+    "license": "MIT",
+    "dependencies": {
+        "lodash-es": "4.17.20"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.15.7",
+        "@babel/core": "^7.15.8",
+        "@babel/preset-env": "^7.15.8",
+        "@rollup/plugin-babel": "^5.3.0",
+        "@rollup/plugin-commonjs": "^17.1.0",
+        "@rollup/plugin-json": "^4.1.0",
+        "@rollup/plugin-node-resolve": "^11.2.0",
+        "browserify": "^17.0.0",
+        "eslint": "^7.20.0",
+        "karma": "6.3.6",
+        "karma-browserify": "^8.0.0",
+        "karma-chrome-launcher": "3.1.0",
+        "karma-coverage": "2.0.3",
+        "karma-firefox-launcher": "2.1.0",
+        "karma-tap": "^4.2.0",
+        "rollup": "^2.39.0",
+        "rollup-plugin-dts": "^2.0.1",
+        "substance-docgen": "0.5.2",
+        "tape": "^5.2.0",
+        "typescript": "4.1.2"
+    }
+}

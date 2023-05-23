@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "outDir": "./types",
+        "allowJs": true,
+        "declaration": true,
+        "checkJs": false,
+        "emitDeclarationOnly": true,
+        "skipLibCheck": true
+    },
+    "files": [
+        "./index.ts"
+    ],
+    "exclude": [
+        "**/*.test.js",
+        "node_modules"
+    ]
+}

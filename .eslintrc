@@ -1,0 +1,43 @@
+{
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaVersion": 2020
+    },
+    "env": {
+        "browser": true,
+        "es6": true,
+        "jest": true
+    },
+    "extends": [
+        "eslint:recommended"
+    ],
+    "rules": {
+        // enable additional rules
+        "indent": [
+            "error",
+            4,
+            {"SwitchCase": 1 }
+        ],
+        "semi": [
+            0,
+            "never"
+        ],
+        "comma-dangle": [
+            2,
+            "only-multiline"
+        ],
+        "no-console": [
+            1,
+            {
+                "allow": [
+                    "warn",
+                    "info",
+                    "error",
+                    "assert",
+                    "time",
+                    "timeEnd"
+                ]
+            }
+        ]
+    }
+}
